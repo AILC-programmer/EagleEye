@@ -3,14 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EagleEye.MainPage"
              xmlns:viewModel ="clr-namespace:EagleEye.ViewModels"
-             x:DataType="viewModel:MainViewModel">
+             x:DataType="viewModel:MainViewModel"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI">
 
     <Grid RowDefinitions=".5*, *, auto"
           RowSpacing="10"
           Padding="10"
           ColumnSpacing="10">
 
-        <Frame CornerRadius="30">
+        <Frame CornerRadius="30" 
+               Background="#FF6C49A5"
+               HorizontalOptions="Fill">
+            
+            <Grid HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+                <skia:SKLottieView Source="colorized_background.json"
+                                   VerticalOptions="FillAndExpand"
+                                   HorizontalOptions="FillAndExpand"
+                                   RepeatCount="-1"
+                                   WidthRequest="2000"
+                                   RepeatMode="Restart"
+                                   HeightRequest="500"/>
+                <skia:SKLottieView Source="dotnet_bot.json"
+                                   VerticalOptions="Fill"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="100"
+                                   HeightRequest="100"
+                                   RepeatCount="-1"
+                                   RepeatMode="Restart"
+                                   SemanticProperties.Description="bot animation."/>
+            </Grid>
         </Frame>
 
         <ImageButton Grid.Row="1"

@@ -5,6 +5,10 @@
         public AppShell()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute(nameof(AboutUsPage), typeof(AboutUsPage));
+            Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
+            Routing.RegisterRoute(nameof(GamePage), typeof(GamePage));
         }
     }
 }

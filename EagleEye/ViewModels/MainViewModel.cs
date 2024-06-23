@@ -6,21 +6,21 @@ namespace EagleEye.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         [RelayCommand]
-        void Play()
+        async Task Play()
         {
-
+            await Shell.Current.GoToAsync(nameof(GamePage));
         }
 
         [RelayCommand]
-        void Settings()
+        async Task Settings()
         {
-
+            await Shell.Current.GoToAsync(nameof(SettingsPage));
         }
 
         [RelayCommand]
-        void AboutUs()
+        async Task AboutUs()
         {
-
+            await Shell.Current.GoToAsync(nameof(AboutUsPage));
         }
     }
 }
