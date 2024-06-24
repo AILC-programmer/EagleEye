@@ -2,14 +2,142 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EagleEye.SettingsPage"
-             Title="SettingsPage"
+             Title="Settings"
              xmlns:viewmodel="clr-namespace:EagleEye.ViewModels"
              x:DataType="viewmodel:SettingsViewModel">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid Padding="50"
+          RowDefinitions="*, Auto"
+          RowSpacing="10"
+          >
+        <Frame Grid.Row="0"
+               Background="#FF252545">
+            <Grid Padding="20,5"
+                  ColumnDefinitions="*, *"
+                  ColumnSpacing="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Colors"
+                           FontSize="Header"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"/>
+                    
+                    <Picker ItemsSource="{Binding NumOfColors}"
+                            SelectedIndex="{Binding NumOfColorsSelectedIndex}"/>
+                    
+                    <HorizontalStackLayout Margin="10,0,0,0">
+                        <CheckBox IsChecked="{Binding RandomColorCheckBox}"/>
+                        <Label Text="Random color"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <Grid ColumnDefinitions="*, *, *"
+                          RowDefinitions="*, *, *"
+                          RowSpacing="10"
+                          ColumnSpacing="10">
+                        <CheckBox Background="#FFF0F0F0"
+                                  Color="#FFF0F0F0"
+                                  ToolTipProperties.Text="White"
+                                  IsChecked="{Binding WhiteCheckBox}"
+                                  IsEnabled="{Binding WhiteCheckBoxEnabled}"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Grid.Row="0"
+                                  Grid.Column="0"/>
+                        <CheckBox Background="#FF555555"
+                                  Color="#FF555555"
+                                  ToolTipProperties.Text="Gray"
+                                  IsChecked="{Binding GrayCheckBox}"
+                                  IsEnabled="{Binding GrayCheckBoxEnabled}"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Grid.Row="0"
+                                  Grid.Column="1"/>
+                        <CheckBox Background="#FFCE2029"
+                                  Color="#FFCE2029"
+                                  ToolTipProperties.Text="Red"
+                                  IsChecked="{Binding RedCheckBox}"
+                                  IsEnabled="{Binding RedCheckBoxEnabled}"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Grid.Row="0"
+                                  Grid.Column="2"/>
+                        <CheckBox Background="#FF0BDA51"
+                                  Color="#FF0BDA51"
+                                  ToolTipProperties.Text="Green"
+                                  IsChecked="{Binding GreenCheckBox}"
+                                  IsEnabled="{Binding GreenCheckBoxEnabled}"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Grid.Row="1"
+                                  Grid.Column="0"/>
+                        <CheckBox Background="#FF00B9E8"
+                                  Color="#FF00B9E8"
+                                  ToolTipProperties.Text="Blue"
+                                  IsChecked="{Binding BlueCheckBox}"
+                                  IsEnabled="{Binding BlueCheckBoxEnabled}"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Grid.Row="1"
+                                  Grid.Column="1"/>
+                        <CheckBox Background="#FFFF1DCE"
+                                  Color="#FFFF1DCE"
+                                  ToolTipProperties.Text="Pink"
+                                  IsChecked="{Binding PinkCheckBox}"
+                                  IsEnabled="{Binding PinkCheckBoxEnabled}"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Grid.Row="1"
+                                  Grid.Column="2"/>
+                        <CheckBox Background="#FFFFBF00"
+                                  Color="#FFFFBF00"
+                                  ToolTipProperties.Text="Yellow"
+                                  IsChecked="{Binding YellowCheckBox}"
+                                  IsEnabled="{Binding YellowCheckBoxEnabled}"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Grid.Row="2"
+                                  Grid.Column="1"/>
+                        <CheckBox Background="#FF8A3324"
+                                  Color="#FF8A3324"
+                                  ToolTipProperties.Text="Brown"
+                                  IsChecked="{Binding BrownCheckBox}"
+                                  IsEnabled="{Binding BrownCheckBoxEnabled}"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Grid.Row="2"
+                                  Grid.Column="2"/>
+                    </Grid>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1"
+                                     Spacing="10">
+                    <Label Text="Game leve"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"
+                           FontSize="Header"/>
+                    
+                    <RadioButton Content="Easy"
+                                 FontSize="20"
+                                 HorizontalOptions="Center"
+                                 IsChecked="{Binding EasyRadioButton}"/>
+                    <RadioButton Content="Medium"
+                                 FontSize="20"
+                                 HorizontalOptions="Center"
+                                 IsChecked="{Binding MediumRadioButton}"/>
+                    <RadioButton Content="Hard"
+                                 FontSize="20"
+                                 HorizontalOptions="Center"
+                                 IsChecked="{Binding HardRadioButton}"/>
+                    
+                </VerticalStackLayout>
+            </Grid>
+        </Frame>
+        <HorizontalStackLayout Spacing="10"
+                               Grid.Row="1"
+                               FlowDirection="RightToLeft">
+            <Button Text="Cancel"
+                    Command="{Binding CancelCommand}"/>
+            <Button Text="Save"
+                    Command="{Binding SaveCommand}"/>
+            
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>
