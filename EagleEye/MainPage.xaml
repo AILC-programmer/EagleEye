@@ -17,7 +17,7 @@
             
             <Grid HorizontalOptions="FillAndExpand"
                   VerticalOptions="FillAndExpand">
-                <skia:SKLottieView Source="colorized_background.json"
+                <skia:SKLottieView Source="colors.json"
                                    VerticalOptions="FillAndExpand"
                                    HorizontalOptions="FillAndExpand"
                                    RepeatCount="-1"

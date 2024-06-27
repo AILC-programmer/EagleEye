@@ -4,12 +4,30 @@
              x:Class="EagleEye.GamePage"
              Title="Game play"
              xmlns:viewmodel="clr-namespace:EagleEye.ViewModels"
+             xmlns:view="clr-namespace:EagleEye.Controls"
              x:DataType="viewmodel:GameViewModel">
-    <Grid>
-        <Label 
-            Text="Game play page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            FontSize="40"/>
+    <Grid RowDefinitions="auto, *"
+          RowSpacing="10">
+        <Label Text="AILC" 
+               HorizontalOptions="Center" 
+               FontSize="Title"/>
+
+        <Frame Grid.Row="1"
+               Margin="15"
+               Background="#00FFFFFF"
+               BorderColor="White"
+               CornerRadius="20">
+            <ScrollView>
+                <VerticalStackLayout Spacing="10">
+                    <view:GameListItemView Text="Remember Colors">
+                        <view:GameListItemView.GestureRecognizers>
+                            <TapGestureRecognizer />
+                        </view:GameListItemView.GestureRecognizers>
+                    </view:GameListItemView>
+                    <view:GameListItemView Text="Say the number"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+        
     </Grid>
 </ContentPage>

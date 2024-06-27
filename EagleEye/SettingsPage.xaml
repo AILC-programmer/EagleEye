@@ -95,7 +95,7 @@
                                   HorizontalOptions="Center"
                                   VerticalOptions="Center"
                                   Grid.Row="2"
-                                  Grid.Column="1"/>
+                                  Grid.Column="0"/>
                         <CheckBox Background="#FF8A3324"
                                   Color="#FF8A3324"
                                   ToolTipProperties.Text="Brown"
@@ -104,7 +104,7 @@
                                   HorizontalOptions="Center"
                                   VerticalOptions="Center"
                                   Grid.Row="2"
-                                  Grid.Column="2"/>
+                                  Grid.Column="1"/>
                     </Grid>
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="1"

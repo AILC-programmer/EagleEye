@@ -1,0 +1,92 @@
+1. Color Match
+Objective: Match the displayed color with the correct name as quickly as possible.
+
+Gameplay:
+
+The game displays a color on the screen.
+Players are given several color names to choose from.
+Players must select the correct color name corresponding to the displayed color.
+The game tracks the time taken to choose the correct color.
+Levels increase in difficulty with more color options and closer shades.
+Features:
+
+Time tracking for high scores.
+Increasing difficulty with more color options.
+Bonus points for streaks of correct answers.
+2. Color Puzzle
+Objective: Arrange tiles to form a specific color pattern or gradient.
+
+Gameplay:
+
+Players are given a scrambled grid of colored tiles.
+The goal is to arrange the tiles to form a gradient or specific pattern.
+Levels have different patterns to complete, such as rainbow gradients, specific shapes, or pictures.
+Features:
+
+Multiple levels with increasing complexity.
+Time limits or move limits for added challenge.
+Hints and undo options.
+3. Color Blind
+Objective: Identify colors under challenging conditions.
+
+Gameplay:
+
+The game displays colors with various distractions (e.g., patterns, moving backgrounds).
+Players must correctly identify or match colors despite the distractions.
+Levels introduce more distractions and more similar colors.
+Features:
+
+Difficulty levels with increasing distractions.
+Points for speed and accuracy.
+Educational mode to help players understand color blindness.
+4. Color Chase
+Objective: Catch the moving color before it disappears.
+
+Gameplay:
+
+Colors appear and move around the screen.
+Players must click on the color before it moves away or disappears.
+The speed and number of colors increase with each level.
+Features:
+
+Speed and agility test.
+Power-ups and bonuses for catching colors quickly.
+Leaderboards to track high scores.
+5. Color Memory
+Objective: Remember and reproduce color sequences.
+
+Gameplay:
+
+The game displays a sequence of colors.
+Players must remember and reproduce the sequence after it disappears.
+Sequences get longer and more complex with each level.
+Features:
+
+Memory enhancement exercises.
+Increasing difficulty with longer sequences.
+Score tracking for progress.
+6. Color Trivia
+Objective: Answer color-related trivia questions.
+
+Gameplay:
+
+Players answer multiple-choice questions about colors, such as color theory, famous artworks, and color in nature.
+Correct answers earn points, and incorrect answers provide educational explanations.
+Features:
+
+Educational content about colors.
+Multiple difficulty levels.
+Timed questions for added challenge.
+7. Color Dash
+Objective: Navigate through a color maze.
+
+Gameplay:
+
+Players control a character that must navigate through a maze filled with different colored sections.
+The character can only pass through sections of the maze that match its current color.
+Players must change the character’s color by picking up power-ups.
+Features:
+
+Challenging mazes with color-coded paths.
+Power-ups to change colors.
+Timed challenges and obstacles.
