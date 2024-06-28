@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using EagleEye.Models;
 using EagleEye.Tools;
 using System.ComponentModel;
 
@@ -13,12 +14,16 @@ namespace EagleEye.ViewModels
         [ObservableProperty]
         string[] numOfColors;
 
+        [ObservableProperty]
+        GameColors colors;
+
         public SettingsViewModel()
         {
             NumOfColors = new string[] { "3", "4", "5", "6", "7" };
 
             LoadModel();
 
+            Colors = new GameColors();
             NumOfColorsSelectedIndex = 0;
             EasyRadioButton = true;
 

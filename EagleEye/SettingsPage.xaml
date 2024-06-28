@@ -4,7 +4,8 @@
              x:Class="EagleEye.SettingsPage"
              Title="Settings"
              xmlns:viewmodel="clr-namespace:EagleEye.ViewModels"
-             x:DataType="viewmodel:SettingsViewModel">
+             x:DataType="viewmodel:SettingsViewModel"
+             xmlns:colors="clr-namespace:EagleEye.Models">
 
     <Grid Padding="50"
           RowDefinitions="*, Auto"
@@ -33,8 +34,8 @@
                           RowDefinitions="*, *, *"
                           RowSpacing="10"
                           ColumnSpacing="10">
-                        <CheckBox Background="#FFF0F0F0"
-                                  Color="#FFF0F0F0"
+                        <CheckBox Background="{Binding Colors.White}"
+                                  Color="{Binding Colors.WhiteColor}"
                                   ToolTipProperties.Text="White"
                                   IsChecked="{Binding WhiteCheckBox}"
                                   IsEnabled="{Binding WhiteCheckBoxEnabled}"
@@ -42,8 +43,8 @@
                                   VerticalOptions="Center"
                                   Grid.Row="0"
                                   Grid.Column="0"/>
-                        <CheckBox Background="#FF555555"
-                                  Color="#FF555555"
+                        <CheckBox Background="{Binding Colors.Gray}"
+                                  Color="{Binding Colors.GrayColor}"
                                   ToolTipProperties.Text="Gray"
                                   IsChecked="{Binding GrayCheckBox}"
                                   IsEnabled="{Binding GrayCheckBoxEnabled}"
@@ -51,8 +52,8 @@
                                   VerticalOptions="Center"
                                   Grid.Row="0"
                                   Grid.Column="1"/>
-                        <CheckBox Background="#FFCE2029"
-                                  Color="#FFCE2029"
+                        <CheckBox Background="{Binding Colors.Red}"
+                                  Color="{Binding Colors.RedColor}"
                                   ToolTipProperties.Text="Red"
                                   IsChecked="{Binding RedCheckBox}"
                                   IsEnabled="{Binding RedCheckBoxEnabled}"
@@ -60,8 +61,8 @@
                                   VerticalOptions="Center"
                                   Grid.Row="0"
                                   Grid.Column="2"/>
-                        <CheckBox Background="#FF0BDA51"
-                                  Color="#FF0BDA51"
+                        <CheckBox Background="{Binding Colors.Green}"
+                                  Color="{Binding Colors.GreenColor}"
                                   ToolTipProperties.Text="Green"
                                   IsChecked="{Binding GreenCheckBox}"
                                   IsEnabled="{Binding GreenCheckBoxEnabled}"
@@ -69,8 +70,8 @@
                                   VerticalOptions="Center"
                                   Grid.Row="1"
                                   Grid.Column="0"/>
-                        <CheckBox Background="#FF00B9E8"
-                                  Color="#FF00B9E8"
+                        <CheckBox Background="{Binding Colors.Blue}"
+                                  Color="{Binding Colors.BlueColor}"
                                   ToolTipProperties.Text="Blue"
                                   IsChecked="{Binding BlueCheckBox}"
                                   IsEnabled="{Binding BlueCheckBoxEnabled}"
@@ -78,8 +79,8 @@
                                   VerticalOptions="Center"
                                   Grid.Row="1"
                                   Grid.Column="1"/>
-                        <CheckBox Background="#FFFF1DCE"
-                                  Color="#FFFF1DCE"
+                        <CheckBox Background="{Binding Colors.Pink}"
+                                  Color="{Binding Colors.PinkColor}"
                                   ToolTipProperties.Text="Pink"
                                   IsChecked="{Binding PinkCheckBox}"
                                   IsEnabled="{Binding PinkCheckBoxEnabled}"
@@ -87,8 +88,8 @@
                                   VerticalOptions="Center"
                                   Grid.Row="1"
                                   Grid.Column="2"/>
-                        <CheckBox Background="#FFFFBF00"
-                                  Color="#FFFFBF00"
+                        <CheckBox Background="{Binding Colors.Yellow}"
+                                  Color="{Binding Colors.YellowColor}"
                                   ToolTipProperties.Text="Yellow"
                                   IsChecked="{Binding YellowCheckBox}"
                                   IsEnabled="{Binding YellowCheckBoxEnabled}"
@@ -96,8 +97,8 @@
                                   VerticalOptions="Center"
                                   Grid.Row="2"
                                   Grid.Column="0"/>
-                        <CheckBox Background="#FF8A3324"
-                                  Color="#FF8A3324"
+                        <CheckBox Background="{Binding Colors.Brown}"
+                                  Color="{Binding Colors.BrownColor}"
                                   ToolTipProperties.Text="Brown"
                                   IsChecked="{Binding BrownCheckBox}"
                                   IsEnabled="{Binding BrownCheckBoxEnabled}"

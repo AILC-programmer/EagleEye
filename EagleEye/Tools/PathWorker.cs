@@ -8,13 +8,7 @@
 
         public static PathWorker Instance
         {
-            get
-            {
-                if (instance == null)
-                    instance = new PathWorker();
-
-                return instance;
-            }
+            get => instance ?? (instance = new PathWorker());
         }
 
         string binFile = Path.Combine(FileSystem.AppDataDirectory, "Bin");
