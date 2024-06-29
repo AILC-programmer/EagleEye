@@ -257,10 +257,12 @@ namespace EagleEye.ViewModels
             if (isForSave)
             {
                 model.NumOfColorsSelectedIndex = NumOfColorsSelectedIndex;
-                model.EasyRadioButton = EasyRadioButton;
-                model.MediumRadioButton = MediumRadioButton;
-                model.HardRadioButton = HardRadioButton;
-                model.RedCheckBox = RedCheckBox;
+                if (EasyRadioButton)
+                    model.gameLevel = Enums.GameLevel.Easy;
+                else if (MediumRadioButton)
+                    model.gameLevel = Enums.GameLevel.Medium;
+                else if (HardRadioButton)
+                    model.gameLevel = Enums.GameLevel.Hard;
                 model.BlueCheckBox = BlueCheckBox;
                 model.GreenCheckBox = GreenCheckBox;
                 model.PinkCheckBox = PinkCheckBox;
@@ -273,9 +275,12 @@ namespace EagleEye.ViewModels
             else
             {
                 NumOfColorsSelectedIndex = model.NumOfColorsSelectedIndex;
-                EasyRadioButton = model.EasyRadioButton;
-                MediumRadioButton = model.MediumRadioButton;
-                HardRadioButton = model.HardRadioButton;
+                if (model.gameLevel == Enums.GameLevel.Easy)
+                    EasyRadioButton = true;
+                else if(model.gameLevel == Enums.GameLevel.Medium)
+                    MediumRadioButton = true;
+                else if(model.gameLevel == Enums.GameLevel.Hard)
+                    HardRadioButton = true;
                 RedCheckBox = model.RedCheckBox;
                 GreenCheckBox = model.GreenCheckBox;
                 BlueCheckBox = model.BlueCheckBox;

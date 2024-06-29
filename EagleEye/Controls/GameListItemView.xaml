@@ -19,7 +19,6 @@
                    FontAttributes="Bold"
                    x:Name="TitleLabel"
                    FontSize="Header"
-                   Rotation="0"
                    VerticalOptions="Center"
                    HorizontalOptions="CenterAndExpand"/>
         </Grid>

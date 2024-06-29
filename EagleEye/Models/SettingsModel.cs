@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using EagleEye.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,7 @@ namespace EagleEye.Models
     public class SettingsModel
     {
         public byte NumOfColorsSelectedIndex { get; set; } = 0;
-        public bool EasyRadioButton { get; set; }
-        public bool MediumRadioButton { get; set; }
-        public bool HardRadioButton { get; set; }
+        public GameLevel gameLevel { get; set; }
         public bool RedCheckBox { get; set; }
         public bool GreenCheckBox { get; set; }
         public bool BlueCheckBox { get; set; }

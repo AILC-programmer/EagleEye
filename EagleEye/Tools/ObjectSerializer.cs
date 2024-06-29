@@ -26,11 +26,11 @@ namespace EagleEye.Tools
                     var json = File.ReadAllText(filePath);
                     return JsonSerializer.Deserialize<T>(json);
                 }
-                throw new Exception("File was not exists!");
+                return default(T);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return default(T);
             }
         }
     }
