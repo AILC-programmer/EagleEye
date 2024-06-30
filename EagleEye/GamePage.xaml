@@ -6,13 +6,65 @@
              xmlns:viewmodel="clr-namespace:EagleEye.ViewModels"
              xmlns:view="clr-namespace:EagleEye.Controls"
              x:DataType="viewmodel:GameViewModel">
-    <Grid RowDefinitions="auto, *"
+    <Grid RowDefinitions="auto, auto, *"
           RowSpacing="10">
         <Label Text="AILC" 
                HorizontalOptions="Center" 
                FontSize="Title"/>
 
         <Frame Grid.Row="1"
+               BorderColor="White"
+               Background="#00FFFFFF"
+               Margin="15,15,15,0">
+            <Grid RowDefinitions="auto, auto"
+                  ColumnDefinitions="auto, *"
+                  RowSpacing="10"
+                  ColumnSpacing="10">
+                <Label Text="Total score: "/>
+                <Label Text="{Binding Model.TotalScore}"
+                       Grid.Column="1"/>
+                
+                <Grid Grid.Row="1"
+                      Grid.ColumnSpan="2"
+                      ColumnDefinitions="auto,*,auto,*,auto,*"
+                      RowDefinitions="*, *"
+                      ColumnSpacing="5">
+                    <Label Text="Remember color easy score: "
+                           Grid.Column="0"/>
+                    <Label Text="{Binding Model.RCEScore}"
+                           Grid.Column="1"/>
+                    <Label Text="Remember color medium score: "
+                           Grid.Column="2"/>
+                    <Label Text="{Binding Model.RCMScore}"
+                           Grid.Column="3"/>
+                    <Label Text="Remember color hard score: "
+                           Grid.Column="4"/>
+                    <Label Text="{Binding Model.RCHScore}"
+                           Grid.Column="5"/>
+
+                    <Label Text="Remember color easy game play:"
+                           Grid.Row="1"
+                           Grid.Column="0"/>
+                    <Label Text="{Binding Model.RCEGPlay}"
+                           Grid.Row="1"
+                           Grid.Column="1"/>
+                    <Label Text="Remember color medium game play:"
+                           Grid.Row="1"
+                           Grid.Column="2"/>
+                    <Label Text="{Binding Model.RCMGPlay}"
+                           Grid.Row="1"
+                           Grid.Column="3"/>
+                    <Label Text="Remember color hard game play:"
+                           Grid.Row="1"
+                           Grid.Column="4"/>
+                    <Label Text="{Binding Model.RCHGPlay}"
+                           Grid.Row="1"
+                           Grid.Column="5"/>
+                </Grid>
+            </Grid>
+        </Frame>
+
+        <Frame Grid.Row="2"
                Margin="15"
                Background="#00FFFFFF"
                BorderColor="White"
@@ -21,7 +73,7 @@
                 <VerticalStackLayout Spacing="10">
                     <view:GameListItemView Text="Remember Colors">
                         <view:GameListItemView.GestureRecognizers>
-                            <TapGestureRecognizer />
+                            <TapGestureRecognizer Command="{Binding RememberColorItemCommand}"/>
                         </view:GameListItemView.GestureRecognizers>
                     </view:GameListItemView>
                     <view:GameListItemView Text="Say the number"/>

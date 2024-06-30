@@ -23,7 +23,9 @@
         }
 
         public string GetSettingsFilePath => Path.Combine(DirectoryPath, "Settings.json");
-
         public bool IsSettingsFileExists => File.Exists(GetSettingsFilePath);
+
+        public string GetGamePlayFilePath => Path.Combine(DirectoryPath, "GamePlay.json");
+        public bool IsGamePlayFileExitst => File.Exists(GetGamePlayFilePath);
     }
 }
