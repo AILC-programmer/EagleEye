@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EagleEye.GamePages.RememberColorGamePage"
+             Title="Remember colors"
+             xmlns:viewmodel="clr-namespace:EagleEye.ViewModels"
+             x:DataType="viewmodel:RememberColorGameViewModel"
+             xmlns:Control="clr-namespace:EagleEye.Controls">
+
+    <Grid RowDefinitions="*, auto"
+          RowSpacing="10">
+        <Grid ColumnDefinitions="*, 0.2*">
+            <Frame Margin="50, 0"
+                   Background="{Binding FrameColor}"
+                   BorderColor="White"/>
+
+            <Frame Grid.Column="1"
+                   BorderColor="White"
+                   Margin="10, 0"
+                   BackgroundColor="#00FFFFFF">
+                <Grid Grid.Column="1"
+                      ColumnSpacing="5"
+                      RowDefinitions="auto, auto, auto, auto, auto, auto, auto,
+                      auto, auto, auto, auto, auto, auto, auto, *"
+                      RowSpacing="10">
+
+                    <!-- Titles -->
+                    <Label Text="Easy"
+                           FontSize="Title"
+                           HorizontalOptions="Center"
+                           Grid.Row="0"
+                           IsVisible="{Binding EasyTitleVisiblity}"/>
+                    <Label Text="Medium"
+                           FontSize="Title"
+                           HorizontalOptions="Center"
+                           Grid.Row="1"
+                           IsVisible="{Binding MediumTitleVisiblity}"/>
+                    <Label Text="Hard"
+                           FontSize="Title"
+                           HorizontalOptions="Center"
+                           Grid.Row="2"
+                           IsVisible="{Binding HardTitleVisiblity}"/>
+
+
+                    <Label Text="Total scores:"
+                           Grid.Row="3"
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding Model.RCEScore}"
+                           Grid.Row="4"
+                           HorizontalOptions="Center"
+                           IsVisible="{Binding EasyTitleVisiblity}"/>
+                    <Label Text="{Binding Model.RCMScore}"
+                           HorizontalOptions="Center"
+                           Grid.Row="5"
+                           IsVisible="{Binding MediumTitleVisiblity}"/>
+                    <Label Text="{Binding Model.RCHScore}"
+                           HorizontalOptions="Center"
+                           Grid.Row="6"
+                           IsVisible="{Binding HardTitleVisiblity}"/>
+
+                    <Line Grid.Row="7"
+                          X1="0"
+                          X2="1000"
+                          Y1="0"
+                          Y2="0"
+                          Stroke="White"
+                          StrokeThickness="2"/>
+                    
+                    <Label Text="Recent game plays:"
+                           HorizontalOptions="Center"
+                           Grid.Row="8"/>
+                    <Label Text="{Binding NumberOfRecentGamePlays}"
+                           HorizontalOptions="Center"
+                           Grid.Row="9"/>
+                    <Label Text="Recent scores:"
+                           HorizontalOptions="Center"
+                           Grid.Row="10"/>
+                    <Label Text="{Binding RecentScores}"
+                           Grid.Row="11"
+                           HorizontalOptions="Center"
+                           Grid.Column="1"/>
+                    <Label Text="Successful game played"
+                           HorizontalOptions="Center"
+                           Grid.Row="12"/>
+                    <Label Text="{Binding SuccessfulPlayed}"
+                           Grid.Row="13"
+                           HorizontalOptions="Center"
+                           Grid.Column="1"/>
+                </Grid>
+            </Frame>
+        </Grid>
+        
+        <Grid Grid.Row="1"
+              Padding="10"
+              ColumnDefinitions="*, Auto">
+            <Grid Grid.Column="0"
+                  RowDefinitions="*, *"
+                  RowSpacing="5"
+                  ColumnSpacing="10"
+                  ColumnDefinitions="auto, auto, auto, auto, *, auto">
+
+                <Control:ColorItemView Text="Red" 
+                                       IsVisible="{Binding RedVisiblity}"
+                                       Color="{Binding Colors.RedColor}"/>
+                <Control:ColorItemView Text="Green" 
+                                       IsVisible="{Binding GreenVisiblity}"
+                                       Color="{Binding Colors.GreenColor}"
+                                       Grid.Row="1"
+                                       Grid.Column="0"/>
+                <Control:ColorItemView Text="Blue" 
+                                       IsVisible="{Binding BlueVisiblity}"
+                                       Color="{Binding Colors.BlueColor}"
+                                       Grid.Row="0"
+                                       Grid.Column="1"/>
+                <Control:ColorItemView Text="Yellow" 
+                                       IsVisible="{Binding YellowVisiblity}"
+                                       Color="{Binding Colors.YellowColor}"
+                                       Grid.Row="1"
+                                       Grid.Column="1"/>
+                <Control:ColorItemView Text="Pink" 
+                                       IsVisible="{Binding PinkVisiblity}"
+                                       Color="{Binding Colors.PinkColor}"
+                                       Grid.Row="0"
+                                       Grid.Column="2"/>
+                <Control:ColorItemView Text="Brown" 
+                                       IsVisible="{Binding BrownVisiblity}"
+                                       Color="{Binding Colors.BrownColor}"
+                                       Grid.Row="1"
+                                       Grid.Column="2"/>
+                <Control:ColorItemView Text="White" 
+                                       IsVisible="{Binding WhiteVisiblity}"
+                                       Color="{Binding Colors.WhiteColor}"
+                                       Grid.Row="0"
+                                       Grid.Column="3"/>
+                <Control:ColorItemView Text="Gray"
+                                       IsVisible="{Binding GrayVisiblity}"
+                                       Color="{Binding Colors.GrayColor}"
+                                       Grid.Row="1"
+                                       Grid.Column="3"/>
+            </Grid>
+
+            <VerticalStackLayout Grid.Column="1"
+                                 Grid.RowSpan="2"
+                                 Spacing="10">
+                <Button Text="Play"
+                        Command="{Binding PlayCommand}"/>
+                <Button Text="Check"
+                        IsVisible="{Binding CheckButtonVisiblity}"
+                        Command="{Binding CheckCommand}"/>
+            </VerticalStackLayout>
+
+        </Grid>
+    </Grid>
+</ContentPage>

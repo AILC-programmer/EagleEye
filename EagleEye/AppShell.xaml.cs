@@ -1,4 +1,6 @@
-﻿namespace EagleEye
+﻿using EagleEye.GamePages;
+
+namespace EagleEye
 {
     public partial class AppShell : Shell
     {
@@ -9,6 +11,7 @@
             Routing.RegisterRoute(nameof(AboutUsPage), typeof(AboutUsPage));
             Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
             Routing.RegisterRoute(nameof(GamePage), typeof(GamePage));
+            Routing.RegisterRoute(nameof(RememberColorGamePage), typeof(RememberColorGamePage));
         }
     }
 }

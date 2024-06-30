@@ -26,7 +26,7 @@ namespace EagleEye.ViewModels
         {
             if (PathWorker.Instance.IsGamePlayFileExitst)
             {
-                ObjectSerializer.DeserializeObject<GamePlayModel>(PathWorker.Instance.GetGamePlayFilePath);
+                Model = ObjectSerializer.DeserializeObject<GamePlayModel>(PathWorker.Instance.GetGamePlayFilePath);
             }
             else
             {
