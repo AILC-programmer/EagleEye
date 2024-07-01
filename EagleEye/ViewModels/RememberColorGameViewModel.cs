@@ -92,6 +92,8 @@ namespace EagleEye.ViewModels
         void Play()
         {
             isPlaying = true;
+            NumberOfRecentGamePlays++;
+
             var numOfColorShows = RandomGenerator.NumberOfShow(settings.gameLevel);
 
             if (numOfColorShows == 0) return;

@@ -95,48 +95,46 @@
               ColumnDefinitions="*, Auto">
             <Grid Grid.Column="0"
                   RowDefinitions="*, *"
-                  RowSpacing="5"
-                  ColumnSpacing="10"
-                  ColumnDefinitions="auto, auto, auto, auto, *, auto">
+                  RowSpacing="5">
 
-                <Control:ColorItemView Text="Red" 
-                                       IsVisible="{Binding RedVisiblity}"
-                                       Color="{Binding Colors.RedColor}"/>
-                <Control:ColorItemView Text="Green" 
-                                       IsVisible="{Binding GreenVisiblity}"
-                                       Color="{Binding Colors.GreenColor}"
-                                       Grid.Row="1"
-                                       Grid.Column="0"/>
-                <Control:ColorItemView Text="Blue" 
-                                       IsVisible="{Binding BlueVisiblity}"
-                                       Color="{Binding Colors.BlueColor}"
-                                       Grid.Row="0"
-                                       Grid.Column="1"/>
-                <Control:ColorItemView Text="Yellow" 
-                                       IsVisible="{Binding YellowVisiblity}"
-                                       Color="{Binding Colors.YellowColor}"
-                                       Grid.Row="1"
-                                       Grid.Column="1"/>
-                <Control:ColorItemView Text="Pink" 
-                                       IsVisible="{Binding PinkVisiblity}"
-                                       Color="{Binding Colors.PinkColor}"
-                                       Grid.Row="0"
-                                       Grid.Column="2"/>
-                <Control:ColorItemView Text="Brown" 
-                                       IsVisible="{Binding BrownVisiblity}"
-                                       Color="{Binding Colors.BrownColor}"
-                                       Grid.Row="1"
-                                       Grid.Column="2"/>
-                <Control:ColorItemView Text="White" 
-                                       IsVisible="{Binding WhiteVisiblity}"
-                                       Color="{Binding Colors.WhiteColor}"
-                                       Grid.Row="0"
-                                       Grid.Column="3"/>
-                <Control:ColorItemView Text="Gray"
-                                       IsVisible="{Binding GrayVisiblity}"
-                                       Color="{Binding Colors.GrayColor}"
-                                       Grid.Row="1"
-                                       Grid.Column="3"/>
+                <HorizontalStackLayout Grid.Row="0">
+                    <Control:ColorItemView Text="Red" 
+                                           IsVisible="{Binding RedVisiblity}"
+                                           Color="{Binding Colors.RedColor}"
+                                           MaxValue="10"/>
+                    <Control:ColorItemView Text="Green" 
+                                           IsVisible="{Binding GreenVisiblity}"
+                                           Color="{Binding Colors.GreenColor}"
+                                           MaxValue="10"/>
+                    <Control:ColorItemView Text="Blue" 
+                                           IsVisible="{Binding BlueVisiblity}"
+                                           Color="{Binding Colors.BlueColor}"
+                                           MaxValue="10"/>
+                    <Control:ColorItemView Text="Yellow" 
+                                           IsVisible="{Binding YellowVisiblity}"
+                                           Color="{Binding Colors.YellowColor}"
+                                           MaxValue="10"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="1">
+
+                    <Control:ColorItemView Text="Pink" 
+                                           IsVisible="{Binding PinkVisiblity}"
+                                           Color="{Binding Colors.PinkColor}"
+                                           MaxValue="10"/>
+                    <Control:ColorItemView Text="Brown" 
+                                           IsVisible="{Binding BrownVisiblity}"
+                                           Color="{Binding Colors.BrownColor}"
+                                           MaxValue="10"/>
+                    <Control:ColorItemView Text="White" 
+                                           IsVisible="{Binding WhiteVisiblity}"
+                                           Color="{Binding Colors.WhiteColor}"
+                                           MaxValue="10"/>
+                    <Control:ColorItemView Text="Gray"
+                                           IsVisible="{Binding GrayVisiblity}"
+                                           Color="{Binding Colors.GrayColor}"
+                                           MaxValue="10"/>
+                </HorizontalStackLayout>
             </Grid>
 
             <VerticalStackLayout Grid.Column="1"

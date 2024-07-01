@@ -8,6 +8,8 @@ public partial class ColorItemView : ContentView
         BindableProperty.Create(nameof(Text), typeof(string), typeof(ColorItemView), "test");
     public static readonly BindableProperty NumberProperty =
         BindableProperty.Create(nameof(Number), typeof(string), typeof(ColorItemView), "0");
+    public static readonly BindableProperty MaxValueProperty =
+        BindableProperty.Create(nameof(MaxValue), typeof(int), typeof(ColorItemView), int.MaxValue);
 
 
     public ColorItemView()
@@ -21,6 +23,11 @@ public partial class ColorItemView : ContentView
         set => SetValue(ColorProperty,value);
     }
 
+    public int MaxValue
+    {
+        get => (int)GetValue(MaxValueProperty);
+        set => SetValue(MaxValueProperty, value);
+    }
 
     public string Text
     {
@@ -32,5 +39,26 @@ public partial class ColorItemView : ContentView
     {
         get => (string)GetValue(NumberProperty);
         set => SetValue(NumberProperty,value);
+    }
+
+    private void Entry_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var entry = sender as Entry;
+        if (entry == null)
+            return;
+
+        var newText = new string(entry.Text.Where(char.IsDigit).ToArray());
+        if(string.IsNullOrEmpty(newText))
+        {
+            entry.Text = "0";
+            return;
+        }
+
+        int n = int.Parse(newText);
+
+        if (n >= MaxValue)
+            entry.Text = MaxValue.ToString();
+        else
+            entry.Text = n.ToString();
     }
 }

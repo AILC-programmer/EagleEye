@@ -10,7 +10,8 @@
                Text="{Binding Source={RelativeSource AncestorType={x:Type local:ColorItemView}}, Path=Text}"
                TextColor="{Binding Source={RelativeSource AncestorType={x:Type local:ColorItemView}}, Path=Color}"/>
         
-        <Entry Text="{Binding Source={RelativeSource AncestorType={x:Type local:ColorItemView}}, Path=Number}"/>
+        <Entry Text="{Binding Source={RelativeSource AncestorType={x:Type local:ColorItemView}}, Path=Number}"
+               TextChanged="Entry_TextChanged"/>
         
     </HorizontalStackLayout>
 </ContentView>
