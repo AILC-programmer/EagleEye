@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using EagleEye.Pages;
+using EagleEye.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace EagleEye
 {
@@ -13,10 +15,20 @@ namespace EagleEye
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("fa-regular-400.ttf", "FontIcon");
+                    fonts.AddFont("solid.ttf", "SolidFontIcon");
                 });
 
+            #region Services
+
+            // MainPage
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainViewModel>();
+
+            #endregion
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

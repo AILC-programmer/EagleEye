@@ -3,13 +3,13 @@
     x:Class="EagleEye.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:EagleEye"
+    xmlns:Pages="clr-namespace:EagleEye.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="EagleEye">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate Pages:MainPage}"
         Route="MainPage" />
 
 </Shell>
