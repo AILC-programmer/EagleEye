@@ -26,9 +26,12 @@
                            CornerRadius="15">
                         <Grid RowDefinitions="auto, auto, auto, *"
                               RowSpacing="5">
-                            <Label Text="Welcom, Arman "
-                                   HorizontalOptions="Center"
-                                   TextColor="White"/>
+                            <HorizontalStackLayout HorizontalOptions="Center">
+                                <Label Text="Welcom, "
+                                       TextColor="White"/>
+                                <Label Text="{Binding User.Username}"
+                                       TextColor="White"/>
+                            </HorizontalStackLayout>
                             <Line Grid.Row="1"
                                   X1="0"
                                   X2="1000"
@@ -40,7 +43,7 @@
                                    HorizontalOptions="Center"
                                    TextColor="White"
                                    Grid.Row="2"/>
-                            <Label Text="255"
+                            <Label Text="{Binding User.TotalScores}"
                                    HorizontalOptions="Center"
                                    Grid.Row="3"
                                    TextColor="White"/>
@@ -49,10 +52,9 @@
                     </Frame>
 
                     <skia:SKLottieView Source="eyecolor_show.json"
-                                       RepeatCount="2"
+                                       RepeatCount="1"
                                        RepeatMode="Restart"
-                                       Grid.Row="1"
-                                       />
+                                       Grid.Row="1"/>
 
                     <Button FontFamily="SolidFontIcon"
                             Text="&#xf144;"
@@ -74,9 +76,9 @@
 
             <HorizontalStackLayout Spacing="10">
                 <Button Text="About us"
-                        />
+                        Command="{Binding GoToAboutUsCommand}"/>
                 <Button Text="Settings"
-                        />
+                        Command="{Binding GoToSettingsCommand}"/>
             </HorizontalStackLayout>
         </Frame>
     </Grid>

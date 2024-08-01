@@ -85,6 +85,9 @@
 
 	<ItemGroup>
 	  <Folder Include="Pages\GamePlay\" />
+	  <Folder Include="ViewModels\GamePlay\" />
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionEagleEyeHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

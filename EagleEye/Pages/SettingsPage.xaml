@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:EagleEye.ViewModels"
+             x:DataType="viewmodel:SettingsViewModel"
+             x:Class="EagleEye.Pages.SettingsPage"
+             Title="Settings">
+    <Grid RowDefinitions="*, auto">
+        <Frame Margin="5">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0, 1" EndPoint="0, 0">
+                    <GradientStop Color="Blue" Offset="0"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+            <ScrollView>
+                <VerticalStackLayout Spacing="10">
+                    <Frame BackgroundColor="#35FFFFFF">
+                        <Grid RowDefinitions="auto, auto, auto, *"
+                              ColumnDefinitions="auto, *"
+                              RowSpacing="10"
+                              ColumnSpacing="10">
+                            <Label Text="COLORS"
+                                   FontSize="Header"
+                                   TextColor="White"
+                                   FontAttributes="Bold,Italic"/>
+                            <Line Grid.Row="1"
+                                  Grid.ColumnSpan="2"
+                                  X1="0" 
+                                  X2="1000"
+                                  Y1="0"
+                                  Y2="0"
+                                  Stroke="White"/>
+                            <Label Text="Number of selected colors:"
+                                   Grid.Row="2"
+                                   TextColor="White"
+                                   Grid.Column="0"
+                                   VerticalOptions="Center"/>
+                            <Picker Grid.Row="2"
+                                    Grid.Column="1"
+                                    ItemsSource="{Binding ColorCounts, Mode=OneWay}"
+                                    SelectedIndex="{Binding Settings.ColorCountIndex, Mode=TwoWay}"/>
+                            <Grid Grid.Row="3"
+                                  Grid.ColumnSpan="2"
+                                  RowDefinitions="auto, *, auto">
+                                <HorizontalStackLayout Spacing="5">
+                                    <Label Text="Random colors"
+                                           TextColor="White"
+                                           VerticalOptions="Center"/>
+                                    <CheckBox IsChecked="{Binding Settings.IsRandomSelected}"
+                                              VerticalOptions="Center"/>
+                                </HorizontalStackLayout>
+                                <Grid Grid.Row="1"
+                                      RowDefinitions="auto, auto, *"
+                                      ColumnDefinitions="*, *, *"
+                                      RowSpacing="10"
+                                      ColumnSpacing="10">
+                                    <CheckBox Grid.Row="0"
+                                              Grid.Column="0"
+                                              Color="{Binding Colors.RedColor}"
+                                              IsEnabled="{Binding RedCheckBoxEnabled}"
+                                              IsChecked="{Binding Settings.IsRedSelected}"/>
+                                    <CheckBox Grid.Row="0"
+                                              Grid.Column="1"
+                                              Color="{Binding Colors.BlueColor}"
+                                              IsEnabled="{Binding BlueCheckBoxEnabled}"
+                                              IsChecked="{Binding Settings.IsBlueSelected}"/>
+                                    <CheckBox Grid.Row="0"
+                                              Grid.Column="2"
+                                              Color="{Binding Colors.GreenColor}"
+                                              IsEnabled="{Binding GreenCheckBoxEnabled}"
+                                              IsChecked="{Binding Settings.IsGreenSelected}"/>
+                                    <CheckBox Grid.Row="1"
+                                              Grid.Column="0"
+                                              Color="{Binding Colors.YellowColor}"
+                                              IsEnabled="{Binding YellowCheckBoxEnabled}"
+                                              IsChecked="{Binding Settings.IsYellowSelected}"/>
+                                    <CheckBox Grid.Row="1"
+                                              Grid.Column="1"
+                                              Color="{Binding Colors.PinkColor}"
+                                              IsEnabled="{Binding PinkCheckBoxEnabled}"
+                                              IsChecked="{Binding Settings.IsPinkSelected}"/>
+                                    <CheckBox Grid.Row="1"
+                                              Grid.Column="2"
+                                              Color="{Binding Colors.BrownColor}"
+                                              IsEnabled="{Binding BrownCheckBoxEnabled}"
+                                              IsChecked="{Binding Settings.IsBrownSelected}"/>
+                                    <CheckBox Grid.Row="2"
+                                              Grid.Column="0"
+                                              Color="{Binding Colors.WhiteColor}"
+                                              IsEnabled="{Binding WhiteCheckBoxEnabled}"
+                                              IsChecked="{Binding Settings.IsWhiteSelected}"/>
+                                    <CheckBox Grid.Row="2"
+                                              Grid.Column="1"
+                                              Color="{Binding Colors.GrayColor}"
+                                              IsEnabled="{Binding GrayCheckBoxEnabled}"
+                                              IsChecked="{Binding Settings.IsGraySelected}"/>
+                                </Grid>
+                                <Button Grid.Row="2"
+                                        Text="Reset colors settings"/>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                    <Frame BackgroundColor="#35FFFFFF">
+                        <Grid RowDefinitions="auto, auto, *"
+                              RowSpacing="10"
+                              >
+                            <Label Text="GAME LEVEL"
+                                   FontSize="Header"
+                                   FontAttributes="Bold,Italic"
+                                   TextColor="White"/>
+                            <Line Grid.Row="1"
+                                  Grid.ColumnSpan="2"
+                                  X1="0" 
+                                  X2="1000"
+                                  Y1="0"
+                                  Y2="0"
+                                  Stroke="White"/>
+                            <VerticalStackLayout Grid.Row="2">
+                                <RadioButton Content="Color explorer"
+                                             TextColor="White"
+                                             FontAttributes="Bold"/>
+                                <RadioButton Content="Shade seeker"
+                                             TextColor="White"
+                                             FontAttributes="Bold"/>
+                                <RadioButton Content="Hue Hunter"
+                                             TextColor="White"
+                                             FontAttributes="Bold"/>
+                                <RadioButton Content="Tint Tracker"
+                                             TextColor="White"
+                                             FontAttributes="Bold"/>
+                                <RadioButton Content="Chromatic Master"
+                                             TextColor="White"
+                                             FontAttributes="Bold"/>
+                                <Button Text="Reset game level"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+                    <Button Text="Reset settings"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+        
+        <Button Grid.Row="1"
+                Text="OK"
+                Command="{Binding GoBackCommand}"/>
+    </Grid>
+    
+</ContentPage>

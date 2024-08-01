@@ -27,6 +27,15 @@ namespace EagleEye
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
 
+            // Settings page
+            builder.Services.AddTransient<SettingsPage>();
+            builder.Services.AddSingleton<SettingsViewModel>();
+
+            // About us page
+            builder.Services.AddTransient<AboutUsPage>();
+            builder.Services.AddTransient<AboutUsViewModel>();
+
+
             #endregion
 
 #if DEBUG
