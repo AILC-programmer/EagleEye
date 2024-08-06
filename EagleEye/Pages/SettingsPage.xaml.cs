@@ -1,3 +1,4 @@
+using EagleEye.Settings;
 using EagleEye.ViewModels;
 
 namespace EagleEye.Pages;

@@ -4,7 +4,11 @@
              xmlns:viewmodel="clr-namespace:EagleEye.ViewModels"
              x:DataType="viewmodel:SettingsViewModel"
              x:Class="EagleEye.Pages.SettingsPage"
+             NavigationPage.IconColor="Black"
              Title="Settings">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
     <Grid RowDefinitions="*, auto">
         <Frame Margin="5">
             <Frame.Background>
@@ -39,15 +43,16 @@
                             <Picker Grid.Row="2"
                                     Grid.Column="1"
                                     ItemsSource="{Binding ColorCounts, Mode=OneWay}"
-                                    SelectedIndex="{Binding Settings.ColorCountIndex, Mode=TwoWay}"/>
+                                    SelectedIndex="{Binding SelectedColorIntex, Mode=TwoWay}"/>
                             <Grid Grid.Row="3"
                                   Grid.ColumnSpan="2"
-                                  RowDefinitions="auto, *, auto">
+                                  RowDefinitions="auto, *, auto"
+                                  RowSpacing="10">
                                 <HorizontalStackLayout Spacing="5">
                                     <Label Text="Random colors"
                                            TextColor="White"
                                            VerticalOptions="Center"/>
-                                    <CheckBox IsChecked="{Binding Settings.IsRandomSelected}"
+                                    <CheckBox IsChecked="{Binding RandomIsChecked}"
                                               VerticalOptions="Center"/>
                                 </HorizontalStackLayout>
                                 <Grid Grid.Row="1"
@@ -59,45 +64,50 @@
                                               Grid.Column="0"
                                               Color="{Binding Colors.RedColor}"
                                               IsEnabled="{Binding RedCheckBoxEnabled}"
-                                              IsChecked="{Binding Settings.IsRedSelected}"/>
+                                              IsChecked="{Binding RedIsChecked}"/>
                                     <CheckBox Grid.Row="0"
                                               Grid.Column="1"
                                               Color="{Binding Colors.BlueColor}"
                                               IsEnabled="{Binding BlueCheckBoxEnabled}"
-                                              IsChecked="{Binding Settings.IsBlueSelected}"/>
+                                              IsChecked="{Binding BlueIsChecked}"/>
                                     <CheckBox Grid.Row="0"
                                               Grid.Column="2"
                                               Color="{Binding Colors.GreenColor}"
                                               IsEnabled="{Binding GreenCheckBoxEnabled}"
-                                              IsChecked="{Binding Settings.IsGreenSelected}"/>
+                                              IsChecked="{Binding GreenIsChecked}"/>
                                     <CheckBox Grid.Row="1"
                                               Grid.Column="0"
                                               Color="{Binding Colors.YellowColor}"
                                               IsEnabled="{Binding YellowCheckBoxEnabled}"
-                                              IsChecked="{Binding Settings.IsYellowSelected}"/>
+                                              IsChecked="{Binding YellowIsChecked}"/>
                                     <CheckBox Grid.Row="1"
                                               Grid.Column="1"
                                               Color="{Binding Colors.PinkColor}"
                                               IsEnabled="{Binding PinkCheckBoxEnabled}"
-                                              IsChecked="{Binding Settings.IsPinkSelected}"/>
+                                              IsChecked="{Binding PinkIsChecked}"/>
                                     <CheckBox Grid.Row="1"
                                               Grid.Column="2"
                                               Color="{Binding Colors.BrownColor}"
                                               IsEnabled="{Binding BrownCheckBoxEnabled}"
-                                              IsChecked="{Binding Settings.IsBrownSelected}"/>
+                                              IsChecked="{Binding BrownIsChecked}"/>
                                     <CheckBox Grid.Row="2"
                                               Grid.Column="0"
                                               Color="{Binding Colors.WhiteColor}"
                                               IsEnabled="{Binding WhiteCheckBoxEnabled}"
-                                              IsChecked="{Binding Settings.IsWhiteSelected}"/>
+                                              IsChecked="{Binding WhiteIsChecked}"/>
                                     <CheckBox Grid.Row="2"
                                               Grid.Column="1"
                                               Color="{Binding Colors.GrayColor}"
                                               IsEnabled="{Binding GrayCheckBoxEnabled}"
-                                              IsChecked="{Binding Settings.IsGraySelected}"/>
+                                              IsChecked="{Binding GrayIsChecked}"/>
+                                    <Button Grid.Row="2"
+                                            Grid.Column="2"
+                                            Text="Uncheck"
+                                            Command="{Binding UncheckColorsCommand}"/>
                                 </Grid>
                                 <Button Grid.Row="2"
-                                        Text="Reset colors settings"/>
+                                        Text="Reset colors settings"
+                                        Command="{Binding ResetColorsSettingsCommand}"/>
                             </Grid>
                         </Grid>
                     </Frame>
@@ -119,24 +129,31 @@
                             <VerticalStackLayout Grid.Row="2">
                                 <RadioButton Content="Color explorer"
                                              TextColor="White"
+                                             IsChecked="{Binding ColorExplorerIsChecked}"
                                              FontAttributes="Bold"/>
                                 <RadioButton Content="Shade seeker"
                                              TextColor="White"
+                                             IsChecked="{Binding ShadeSeekerIsChecked}"
                                              FontAttributes="Bold"/>
                                 <RadioButton Content="Hue Hunter"
                                              TextColor="White"
+                                             IsChecked="{Binding HueHunterIsChecked}"
                                              FontAttributes="Bold"/>
                                 <RadioButton Content="Tint Tracker"
                                              TextColor="White"
+                                             IsChecked="{Binding TintTrackerIsChecked}"
                                              FontAttributes="Bold"/>
                                 <RadioButton Content="Chromatic Master"
                                              TextColor="White"
+                                             IsChecked="{Binding ChromaticMasterIsChecked}"
                                              FontAttributes="Bold"/>
-                                <Button Text="Reset game level"/>
+                                <Button Text="Reset game level"
+                                        Command="{Binding ResetGameLevelCommand}"/>
                             </VerticalStackLayout>
                         </Grid>
                     </Frame>
-                    <Button Text="Reset settings"/>
+                    <Button Text="Reset settings"
+                            Command="{Binding ResetSettingsCommand}"/>
                 </VerticalStackLayout>
             </ScrollView>
         </Frame>

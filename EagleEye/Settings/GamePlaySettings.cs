@@ -6,16 +6,12 @@ namespace EagleEye.Settings
     {
         // Singleton
 
-        private GamePlaySettings() 
-        {
-            loadColors();
-        }
+        private GamePlaySettings() {}
         private static GamePlaySettings instance;
         public static GamePlaySettings Instance => instance ?? (instance = new GamePlaySettings());
 
         //
-        private int selectedColorsCount = 0;
-
+        
         public readonly string[] ColorCounts = new string[] { "3", "4", "5", "6", "7" };
 
         public GameLevel GameLevel
@@ -27,176 +23,118 @@ namespace EagleEye.Settings
         public int ColorCountIndex
         {
             get => Preferences.Default.Get<int>(SettingsKeysName.ColorCountKey, 0);
-            set
-            {
-                Preferences.Default.Set<int>(SettingsKeysName.ColorCountKey, value);
-                restartColors();
-            }
+            set => Preferences.Default.Set<int>(SettingsKeysName.ColorCountKey, value);
         }
 
         public int ColorCount => Convert.ToInt32(ColorCounts[ColorCountIndex]);
+
+        public bool IsOK => AreFullColorsSelected || IsRandomSelected;
 
         #region Colors settings
         // Red
         public bool IsRedSelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsRedSelectedKey, false);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsRedSelectedKey, value);
-                ColorsManager(value);
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsRedSelectedKey, value);
         }
         // Green
         public bool IsGreenSelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsGreenSelectedKey, false);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsGreenSelectedKey, value);
-                ColorsManager(value);
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsGreenSelectedKey, value);
         }
         // Blue
         public bool IsBlueSelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsBlueSelectedKey, false);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsBlueSelectedKey, value);
-                ColorsManager(value);
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsBlueSelectedKey, value);
         }
         // Pink
         public bool IsPinkSelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsPinkSelectedKey, false);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsPinkSelectedKey, value);
-                ColorsManager(value);
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsPinkSelectedKey, value);
         }
         // White
         public bool IsWhiteSelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsWhiteSelectedKey, false);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsWhiteSelectedKey, value);
-                ColorsManager(value);
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsWhiteSelectedKey, value);
         }
         // Gray
         public bool IsGraySelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsGraySelectedKey, false);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsGraySelectedKey, value);
-                ColorsManager(value);
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsGraySelectedKey, value);
         }
         // Yellow
         public bool IsYellowSelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsYellowSelectedKey, false);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsYellowSelectedKey, value);
-                ColorsManager(value);
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsYellowSelectedKey, value);
         }
         // Brown
         public bool IsBrownSelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsBrownSelectedKey, false);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsBrownSelectedKey, value);
-                ColorsManager(value);
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsBrownSelectedKey, value);
         }
         // Random colors
         public bool IsRandomSelected
         {
             get => Preferences.Default.Get<bool>(SettingsKeysName.IsRandomSelectedKey, true);
-            set
-            {
-                Preferences.Default.Set<bool>(SettingsKeysName.IsRandomSelectedKey, value);
-                if(value)
-                    setAllColorsStatus(false);
-                ColorsManager(value);
-
-            }
+            set => Preferences.Default.Set<bool>(SettingsKeysName.IsRandomSelectedKey, value);
         }
         #endregion
 
-        public bool AreFullColorsSelected => ColorCount == selectedColorsCount;
+        public bool AreFullColorsSelected => ColorCount == SelectedColorsCount();
 
         #region Methodes
 
-        public void RestartSettings()
+        public void ResetSettings()
         {
-            this.GameLevel = GameLevel.ShadeSeeker;
-            RestartColors();
+            ResetColorsSettings();
+            ResetGameLevel();
         }
 
-        public void ColorsManager(bool value)
-        {
-            if (value)
-                selectedColorsCount++;
-            else if (!value && selectedColorsCount > 0)
-                selectedColorsCount--;
-
-            if (OnAllSelectedColors != null)
-                OnAllSelectedColors();
-        }
-
-        public void RestartColors()
+        public void ResetColorsSettings()
         {
             ColorCountIndex = 0;
             IsRandomSelected = true;
+            ResetColors();
         }
 
-        private void restartColors()
-        {
-            setAllColorsStatus(false);
-        }
-
-        private void setAllColorsStatus(bool status)
+        public void ResetColors()
         {
             IsRedSelected = IsBlueSelected = IsGreenSelected = IsYellowSelected =
-                IsPinkSelected = IsBrownSelected = IsWhiteSelected = IsGraySelected = status;
+                IsPinkSelected = IsBrownSelected = IsWhiteSelected = IsGraySelected = false;
         }
 
-        private void loadColors()
+        public void ResetGameLevel() => this.GameLevel = GameLevel.ShadeSeeker;
+
+        public int SelectedColorsCount()
         {
+            int selected = 0;
             if (IsRedSelected)
-                selectedColorsCount++;
+                selected++;
             if (IsBlueSelected)
-                selectedColorsCount++;
+                selected++;
             if (IsGreenSelected)
-                selectedColorsCount++;
+                selected++;
             if (IsYellowSelected)
-                selectedColorsCount++;
+                selected++;
             if (IsPinkSelected)
-                selectedColorsCount++;
+                selected++;
             if (IsBrownSelected)
-                selectedColorsCount++;
+                selected++;
             if (IsWhiteSelected)
-                selectedColorsCount++;
+                selected++;
             if (IsGraySelected)
-                selectedColorsCount++;
+                selected++;
+
+            return selected;
         }
 
         #endregion
-
-        // event
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public event Action OnAllSelectedColors;
     }
 }

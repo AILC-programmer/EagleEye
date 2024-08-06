@@ -29,7 +29,7 @@ namespace EagleEye
 
             // Settings page
             builder.Services.AddTransient<SettingsPage>();
-            builder.Services.AddSingleton<SettingsViewModel>();
+            builder.Services.AddTransient<SettingsViewModel>();
 
             // About us page
             builder.Services.AddTransient<AboutUsPage>();
