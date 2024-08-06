@@ -13,13 +13,13 @@
         <Frame Grid.Row="0">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                    <GradientStop Color="Red" Offset="0"/>
-                    <GradientStop Color="Blue" Offset="1"/>
+                    <GradientStop Color="#FFF4B315" Offset="0"/>
+                    <GradientStop Color="#FFE59312" Offset="1"/>
                 </LinearGradientBrush>
             </Frame.Background>
             
             <ScrollView>
-                <Grid RowDefinitions="auto, 0.5*, *"
+                <Grid RowDefinitions="auto, *"
                       RowSpacing="15">
                     <Frame BackgroundColor="#25FFFFFF"
                            BorderColor="White"
@@ -38,7 +38,7 @@
                                   Y1="0"
                                   Y2="0"
                                   Stroke="White"/>
-                            
+
                             <Label Text="Your total scores:"
                                    HorizontalOptions="Center"
                                    TextColor="White"
@@ -47,15 +47,10 @@
                                    HorizontalOptions="Center"
                                    Grid.Row="3"
                                    TextColor="White"/>
-                            
+
                         </Grid>
                     </Frame>
-
-                    <skia:SKLottieView Source="eyecolor_show.json"
-                                       RepeatCount="1"
-                                       RepeatMode="Restart"
-                                       Grid.Row="1"/>
-
+                    
                     <Button FontFamily="SolidFontIcon"
                             Text="&#xf144;"
                             Grid.Row="2"
@@ -69,15 +64,17 @@
         <Frame Grid.Row="1">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
-                    <GradientStop Color="Red" Offset="0"/>
-                    <GradientStop Color="Blue" Offset="1"/>
+                    <GradientStop Color="#FFE59312" Offset="0"/>
+                    <GradientStop Color="#FFF4B315" Offset="1"/>
                 </LinearGradientBrush>
             </Frame.Background>
 
             <HorizontalStackLayout Spacing="10">
                 <Button Text="About us"
+                        Background="#FF8E5915"
                         Command="{Binding GoToAboutUsCommand}"/>
                 <Button Text="Settings"
+                        Background="#FF8E5915"
                         Command="{Binding GoToSettingsCommand}"/>
             </HorizontalStackLayout>
         </Frame>

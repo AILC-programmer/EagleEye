@@ -13,8 +13,8 @@
         <Frame Margin="5">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0, 1" EndPoint="0, 0">
-                    <GradientStop Color="Blue" Offset="0"/>
-                    <GradientStop Color="Red" Offset="1"/>
+                    <GradientStop Color="#FFE59312" Offset="1"/>
+                    <GradientStop Color="#FFF4B315" Offset="0"/>
                 </LinearGradientBrush>
             </Frame.Background>
             <ScrollView>
