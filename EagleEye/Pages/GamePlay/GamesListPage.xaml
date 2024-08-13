@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:EagleEye.Views"
+             xmlns:viewmodel="clr-namespace:EagleEye.ViewModels.GamePlay"
+             x:DataType="viewmodel:GamesListViewModel"
+             x:Class="EagleEye.Pages.GamePlay.GamesListPage"
+             Title="Games">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+    <Frame BorderColor="{x:Null}"
+           Margin="10">
+        <Frame.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Color="#FFF4B315" Offset="0"/>
+                <GradientStop Color="#FFE59312" Offset="1"/>
+            </LinearGradientBrush>
+        </Frame.Background>
+        
+        <Grid RowDefinitions=".25*, auto, .75*"
+            RowSpacing="10">
+            <Frame BackgroundColor="#35000000"
+                   BorderColor="#FF000000">
+                <ScrollView VerticalScrollBarVisibility="Always">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="TOTAL SCORES"
+                               FontSize="Header"
+                               FontAttributes="Bold,Italic"
+                               HorizontalTextAlignment="Center"
+                               TextColor="White"/>
+                        <Label Text="{Binding User.TotalScores}"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="TOTLA GAME PLAYS"
+                               FontSize="Header"
+                               FontAttributes="Bold,Italic"
+                               HorizontalTextAlignment="Center"
+                               TextColor="White"/>
+                        <Label Text="{Binding User.TotalGamePlayed}"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="TOTAL REMEBER COLORS SCORES"
+                               FontSize="Header"
+                               FontAttributes="Bold,Italic"
+                               HorizontalTextAlignment="Center"
+                               TextColor="White"/>
+                        <Label Text="{Binding User.TotalRememberColorScores}"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="TOTAL REMEBER COLORS GAME PLAYS"
+                               FontSize="Header"
+                               FontAttributes="Bold,Italic"
+                               HorizontalTextAlignment="Center"
+                               TextColor="White"/>
+                        <Label Text="{Binding User.TotalRememberColorGamePlayed}"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Frame>
+
+            <Line Grid.Row="1"
+                  X1="0"
+                  X2="7000"
+                  Y1="0"
+                  Y2="0"
+                  StrokeThickness="3"
+                  Stroke="#FF000000"/>
+
+            <Frame Grid.Row="2"
+                   BackgroundColor="#35000000"
+                   BorderColor="#FF000000">
+                <ScrollView VerticalScrollBarVisibility="Always">
+                    <VerticalStackLayout Spacing="10">
+
+                        <view:GamePlayItemView Title="REMEMBER COLORS"
+                                               Description=""
+                                               Command="{Binding GoToRemeberColorsCommand}">
+                        </view:GamePlayItemView>
+
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Frame>
+        </Grid>
+    </Frame>
+</ContentPage>

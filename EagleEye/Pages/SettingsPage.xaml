@@ -19,7 +19,20 @@
             </Frame.Background>
             <ScrollView>
                 <VerticalStackLayout Spacing="10">
-                    <Frame BackgroundColor="#35FFFFFF">
+                    <Frame BackgroundColor="#35000000"
+                           BorderColor="#FF000000">
+                        <Grid RowDefinitions="auto, *"
+                              RowSpacing="10">
+                            <Label Text="Username"
+                                   FontSize="Header"
+                                   TextColor="White"
+                                   FontAttributes="Bold, Italic"/>
+                            <Entry Grid.Row="1"
+                                   Text="{Binding Username}"/>
+                        </Grid>
+                    </Frame>
+                    <Frame BackgroundColor="#35000000"
+                           BorderColor="#FF000000">
                         <Grid RowDefinitions="auto, auto, auto, *"
                               ColumnDefinitions="auto, *"
                               RowSpacing="10"
@@ -34,7 +47,7 @@
                                   X2="1000"
                                   Y1="0"
                                   Y2="0"
-                                  Stroke="White"/>
+                                  Stroke="#FF000000"/>
                             <Label Text="Number of selected colors:"
                                    Grid.Row="2"
                                    TextColor="White"
@@ -111,7 +124,8 @@
                             </Grid>
                         </Grid>
                     </Frame>
-                    <Frame BackgroundColor="#35FFFFFF">
+                    <Frame BackgroundColor="#35000000"
+                           BorderColor="#FF000000">
                         <Grid RowDefinitions="auto, auto, *"
                               RowSpacing="10"
                               >
@@ -125,7 +139,7 @@
                                   X2="1000"
                                   Y1="0"
                                   Y2="0"
-                                  Stroke="White"/>
+                                  Stroke="#FF000000"/>
                             <VerticalStackLayout Grid.Row="2">
                                 <RadioButton Content="Color explorer"
                                              TextColor="White"

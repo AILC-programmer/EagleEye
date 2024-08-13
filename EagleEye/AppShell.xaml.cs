@@ -1,4 +1,5 @@
 ﻿using EagleEye.Pages;
+using EagleEye.Pages.GamePlay;
 using EagleEye.Settings;
 
 namespace EagleEye
@@ -11,6 +12,8 @@ namespace EagleEye
 
             Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
             Routing.RegisterRoute(nameof(AboutUsPage), typeof(AboutUsPage));
+            Routing.RegisterRoute(nameof(GamesListPage), typeof(GamesListPage));
+            Routing.RegisterRoute(nameof(RememberColorsPage), typeof(RememberColorsPage));
         }
 
         protected async override void OnNavigating(ShellNavigatingEventArgs args)

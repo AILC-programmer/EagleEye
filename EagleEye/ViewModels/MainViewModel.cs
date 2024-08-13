@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using EagleEye.Models;
 using EagleEye.Pages;
+using EagleEye.Pages.GamePlay;
 using EagleEye.Tools;
 
 namespace EagleEye.ViewModels
@@ -22,14 +23,24 @@ namespace EagleEye.ViewModels
         [RelayCommand]
         async Task GoToAboutUs() => await AppShell.Current.GoToAsync(nameof(AboutUsPage));
 
+        [RelayCommand]
+        async Task GoToGamesList() => await AppShell.Current.GoToAsync(nameof(GamesListPage));
+
         void LoadModel()
         {
             var result = ObjectSerializer.DeserializeObject<UserModel>(PathWorker.Instance.GetUserFilePath);
             if (result != null)
                 User = result;
             else
-                User = new Models.UserModel();
+            {
+                User = new UserModel()
+                {
+                    Username = "User",
+                };
+                saveModel();
+            }
         }
 
+        async void saveModel() => await ObjectSerializer.SerializeObject(PathWorker.Instance.GetUserFilePath, User);
     }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EagleEye.Views"
+             xmlns:converter="clr-namespace:EagleEye.Converters"
+             x:Class="EagleEye.Views.GamePlayItemView"
+             HeightRequest="250">
+    <ContentView.Resources>
+        <converter:Text2Visibility x:Key="t2v"/>
+    </ContentView.Resources>
+    <Frame BorderColor="Black">
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+        </Frame.GestureRecognizers>
+        <Frame.Background>
+            <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                <GradientStop Color="#FF8E5915" Offset="0"/>
+                <GradientStop Color="#FFD3AF85" Offset="1"/>
+            </LinearGradientBrush>
+        </Frame.Background>
+        
+        <Grid RowDefinitions="*, auto"
+              RowSpacing="10">
+            <Label x:Name="TitleLabel"
+                   Text="{Binding Source={RelativeSource AncestorType={x:Type local:GamePlayItemView}}, Path=Title}"
+                   FontSize="Title"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"/>
+            <Label x:Name="DescriptionLabel"
+                   Grid.Row="1"
+                   Text="{Binding Source={RelativeSource AncestorType={x:Type local:GamePlayItemView}}, Path=Description}"
+                   FontSize="Body"
+                   VerticalTextAlignment="Center"
+                   IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:GamePlayItemView}}, Path=Description, Converter={StaticResource t2v}}"
+                   TextColor="Black"/>
+        </Grid>
+
+    </Frame>
+</ContentView>

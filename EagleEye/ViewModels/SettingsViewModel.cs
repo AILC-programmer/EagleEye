@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using EagleEye.Models;
 using EagleEye.Models.Enums;
 using EagleEye.Settings;
+using EagleEye.Tools;
 using System.ComponentModel;
 
 namespace EagleEye.ViewModels
@@ -10,10 +11,14 @@ namespace EagleEye.ViewModels
     public partial class SettingsViewModel : ObservableObject
     {
         GamePlaySettings settings;
+        UserModel userModel;
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public SettingsViewModel()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             initializeSettings();
+            initializeUserModel();
         }
 
         protected override void OnPropertyChanged(PropertyChangedEventArgs e)
@@ -120,6 +125,11 @@ namespace EagleEye.ViewModels
                             settings.GameLevel = GameLevel.ChromaticMaster;
                     }
                     break;
+                case nameof(Username):
+                    {
+                        userModel.Username = Username;
+                        saveUserModel();
+                    }break;
                 default:
                     break;
             }
@@ -129,6 +139,8 @@ namespace EagleEye.ViewModels
 
         [ObservableProperty]
         string[] colorCounts;
+        [ObservableProperty]
+        string username;
         [ObservableProperty]
         int selectedColorIntex;
         [ObservableProperty]
@@ -232,6 +244,14 @@ namespace EagleEye.ViewModels
             else if (settings.GameLevel == GameLevel.ChromaticMaster)
                 ChromaticMasterIsChecked = true;
         }
+
+        void initializeUserModel()
+        {
+            userModel = ObjectSerializer.DeserializeObject<UserModel>(PathWorker.Instance.GetUserFilePath);
+            Username = userModel.Username;
+        }
+
+        async void saveUserModel() => await ObjectSerializer.SerializeObject(PathWorker.Instance.GetUserFilePath, userModel);
 
         void CheckedCountChanged()
         {

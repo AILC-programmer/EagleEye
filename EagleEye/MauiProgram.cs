@@ -1,5 +1,7 @@
 ﻿using EagleEye.Pages;
+using EagleEye.Pages.GamePlay;
 using EagleEye.ViewModels;
+using EagleEye.ViewModels.GamePlay;
 using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 
@@ -35,6 +37,13 @@ namespace EagleEye
             builder.Services.AddTransient<AboutUsPage>();
             builder.Services.AddTransient<AboutUsViewModel>();
 
+            // Game list page
+            builder.Services.AddTransient<GamesListPage>();
+            builder.Services.AddTransient<GamesListViewModel>();
+
+            // Remember colors page
+            builder.Services.AddTransient<RememberColorsPage>();
+            builder.Services.AddTransient<RememberColorsViewModel>();
 
             #endregion
 

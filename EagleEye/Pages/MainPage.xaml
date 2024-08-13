@@ -21,8 +21,8 @@
             <ScrollView>
                 <Grid RowDefinitions="auto, *"
                       RowSpacing="15">
-                    <Frame BackgroundColor="#25FFFFFF"
-                           BorderColor="White"
+                    <Frame BackgroundColor="#35000000"
+                           BorderColor="#FF000000"
                            CornerRadius="15">
                         <Grid RowDefinitions="auto, auto, auto, *"
                               RowSpacing="5">
@@ -37,7 +37,7 @@
                                   X2="1000"
                                   Y1="0"
                                   Y2="0"
-                                  Stroke="White"/>
+                                  Stroke="#FF000000"/>
 
                             <Label Text="Your total scores:"
                                    HorizontalOptions="Center"
@@ -55,8 +55,9 @@
                             Text="&#xf144;"
                             Grid.Row="2"
                             FontSize="200"
+                            TextColor="#85000000"
                             BackgroundColor="#00FFFFFF"
-                            />
+                            Command="{Binding GoToGamesListCommand}"/>
                 </Grid>
             </ScrollView>
         </Frame>

@@ -3,7 +3,11 @@
 public class UserModel
 {
     public string Username { get; set; } = "User";
+    
+    // Scores
+    
     public int TotalScores { get; set; } = 0;
+    public int TotalRememberColorScores { get; set; } = 0;
 
     // Game played count
     
